@@ -10,19 +10,26 @@ describe('callback functions', () => {
     'bananas',
   ];
 
-  describe('firstItem', () => {
+  describe('firstItem', () => { //outer function
+
     it('should pass the first item in the list to the callBack', () => {
+
       let itemToTest;
-      callBackMethods.firstItem(listOfFood, (first) => {
+      callBackMethods.firstItem(listOfFood, (first) => { //listOfFood gets passed as an array //
         itemToTest = first;
       });
+
       expect(itemToTest).toBe(listOfFood[0]);
     });
+
     it('should call the callback with the expected input', () => {
+
       const mock = jest.fn();
       callBackMethods.firstItem(listOfFood, mock);
+
       expect(mock).toBeCalledWith('cheetoes');
     });
+
   });
 
   describe('getLength', () => {
